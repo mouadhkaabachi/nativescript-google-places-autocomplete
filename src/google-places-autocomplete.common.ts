@@ -13,9 +13,7 @@ export class Common extends Observable {
   public search(terms: string, countryISO: string = '') {
     let requestUrl = PLACES_API_URL +
       "?input=" + encodeURIComponent(terms.trim()) +
-      (countryISO ? "&components=country:" + countryISO : '') +
-      "&types=geocode&key=" +
-      this.apikey;
+      (countryISO ? "&components=country:" + countryISO : '') + "&key=" + this.apikey;
     return http
       .getJSON(requestUrl)
       .then(function (data: any) {
